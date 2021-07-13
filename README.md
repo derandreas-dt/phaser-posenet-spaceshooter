@@ -6,6 +6,19 @@ Uses the webcam with googles posenet to identify you in a T-POSE
 in front of you camera and with your arms lean to the left / right
 you steer the spaceship.
 
+## DEMO
+
+[Github Pages hosted DEMO](https://derandreas-dt.github.io/phaser-posenet-spaceshooter/)
+
+This little demo is hosted on GitHub Pages and served from the dist folder.
+So should be latest build with the newest bugs :)
+
+## Images and HowTo
+
+![Game looks like](demo_game.png "Sample screenshot what the game looks like")
+![HowTO](demo_howto.png "HowTo instructions")
+
+
 
 ## TODO
 
