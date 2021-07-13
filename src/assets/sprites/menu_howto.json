@@ -1,0 +1,83 @@
+{
+	"textures": [
+		{
+			"image": "menu_howto.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 990,
+				"h": 72
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "menu_howto_down",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 328,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 328,
+						"h": 70
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 328,
+						"h": 70
+					}
+				},
+				{
+					"filename": "menu_howto_over",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 328,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 328,
+						"h": 70
+					},
+					"frame": {
+						"x": 331,
+						"y": 1,
+						"w": 328,
+						"h": 70
+					}
+				},
+				{
+					"filename": "menu_howto_up",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 328,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 328,
+						"h": 70
+					},
+					"frame": {
+						"x": 661,
+						"y": 1,
+						"w": 328,
+						"h": 70
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:e1a2c342a9ea3eaf388b2990deb683c7:cbf257c479a9d0a81bcc81cdacf56e45:0b01e066b27d3bd27d8f93847b985c03$"
+	}
+}
