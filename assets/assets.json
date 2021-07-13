@@ -1,0 +1,47 @@
+{
+  "image": {
+      "phaser-logo": "assets/img/phaser-logo.png",
+      "logo": "assets/img/logo.png",
+      "background": "assets/img/bgpattern.jpg",
+      "starfield": "assets/img/starfield.png",
+      "menu_goback": "assets/img/menu_goback.png",
+      "howto": "assets/img/howto.png",
+      "plaser": "assets/img/plaser.png",
+      "elaser": "assets/img/elaser.png"
+  },
+  "audio": {
+    "explosion-l" : {
+        "wav" : "assets/audio/expl_lg.wav"
+    },
+    "explosion-m" : {
+        "wav" : "assets/audio/expl_md.wav"
+    },
+    "laser" : {
+        "wav" : "assets/audio/laser.wav"
+    },
+    "btnclick" : {
+        "wav" : "assets/audio/btnclick.wav"
+    },
+    "btnover" : {
+        "wav" : "assets/audio/btnover.wav"
+    }
+  },
+  "spritesheet": {
+      "player" : ["assets/sprites/player.png", { "frameWidth": 32, "frameHeight": 32 }],
+      "explosion" : ["assets/sprites/explosion.png", { "frameWidth": 32, "frameHeight": 32 }],
+      "venemy" : ["assets/sprites/venemy.png", { "frameWidth": 32, "frameHeight": 32 }],
+      "oenemy" : ["assets/sprites/oenemy.png", { "frameWidth": 32, "frameHeight": 32 }],
+      "menopts" : ["assets/sprites/menopts.png", { "frameWidth": 240, "frameHeight": 100 }],
+      "menstart" : ["assets/sprites/menstart.png", { "frameWidth": 240, "frameHeight": 100 }]
+  },
+  "script": {
+    "webfont": "https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
+  },
+  "multiatlas": {
+    "menu_startgame": ["assets/sprites/menu_startgame.json", "assets/sprites"],
+    "menu_options": ["assets/sprites/menu_options.json", "assets/sprites"],
+    "menu_music": ["assets/sprites/menu_music.json", "assets/sprites"],
+    "menu_sfx": ["assets/sprites/menu_sfx.json", "assets/sprites"],
+    "menu_howto": ["assets/sprites/menu_howto.json", "assets/sprites"]
+  }
+}
