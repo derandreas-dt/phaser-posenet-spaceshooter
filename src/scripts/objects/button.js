@@ -74,6 +74,10 @@ class ToggleButton extends Phaser.GameObjects.Image {
       this.setTint(0x0000ff)
     }, this)
 
+    this.on('pointerout', () => {
+      this.clearTint()
+    }, this)
+
     scene.add.existing(this);
   }
 
