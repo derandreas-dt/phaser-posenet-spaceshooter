@@ -1,4 +1,6 @@
-
+import {
+  ImageButton
+} from '../objects/button'
 export default class HowtoScene extends Phaser.Scene {
   constructor() {
     super({
@@ -17,13 +19,15 @@ export default class HowtoScene extends Phaser.Scene {
 
     const howto = this.add.image(centerX, 50, 'howto')
     howto.setOrigin(0.5, 0)
-    howto.setScale(1.5, 1.5)
 
-    const goback = this.add.sprite(centerX, 700, 'menu_goback')
-    goback.setInteractive()
-    goback.setOrigin(0.5)
-    goback.on('pointerup', this.onGoBack, this)
-    goback.on('pointerover', this.onButtonOver, this)
+    const goback = new ImageButton(centerX, 500, 'menu_buttons', this, {
+      up: 'goback_up',
+      down: 'goback_down',
+      over: 'goback_over',
+      out: 'goback_up'
+    })
+    goback.on('click', this.onGoBack, this)
+    goback.on('over', this.onButtonOver, this)
 
   }
   sfxPlay(sfx) {
