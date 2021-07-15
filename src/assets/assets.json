@@ -1,6 +1,5 @@
 {
   "image": {
-      "phaser-logo": "assets/img/phaser-logo.png",
       "logo": "assets/img/logo.png",
       "background": "assets/img/bgpattern.jpg",
       "starfield": "assets/img/starfield.png",
