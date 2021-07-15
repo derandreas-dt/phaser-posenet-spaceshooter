@@ -1,5 +1,6 @@
 import {
-  ToggleButton
+  ToggleButton,
+  ImageButton
 } from '../objects/button'
 
 export default class OptionsScene extends Phaser.Scene {
@@ -21,26 +22,29 @@ export default class OptionsScene extends Phaser.Scene {
     const title = this.add.sprite(centerX, 100, 'logo')
     title.setOrigin(0.5)
 
-    const music = new ToggleButton(centerX, 300, 'menu_music', this, {
-      on: 'menu_music_on',
-      off: 'menu_music_off'
+    const music = new ToggleButton(centerX, 300, 'menu_buttons', this, {
+      on: 'music_on',
+      off: 'music_off'
     }, this.registry.get('options-music'))
+
     music.on('changed', this.onMusicChanged, this)
     music.on('over', this.onButtonOver, this)
 
-    const sound = new ToggleButton(centerX, 400, 'menu_sfx', this, {
-      on: 'menu_sfx_on',
-      off: 'menu_sfx_off'
+    const sound = new ToggleButton(centerX, 400, 'menu_buttons', this, {
+      on: 'sfx_on',
+      off: 'sfx_off'
     }, this.registry.get('options-sound'))
     sound.on('changed', this.onSoundChanged, this)
     sound.on('over', this.onButtonOver, this)
 
-    const goback = this.add.sprite(centerX, 500, 'menu_goback')
-    goback.setInteractive()
-    goback.setOrigin(0.5)
-    goback.on('pointerup', this.onGoBack, this)
-    goback.on('pointerover', this.onButtonOver, this)
-
+    const goback = new ImageButton(centerX, 500, 'menu_buttons', this, {
+      up: 'goback_up',
+      down: 'goback_down',
+      over: 'goback_over',
+      out: 'goback_up'
+    })
+    goback.on('click', this.onGoBack, this)
+    goback.on('over', this.onButtonOver, this)
 
     this.add.existing(music);
     this.add.existing(sound);

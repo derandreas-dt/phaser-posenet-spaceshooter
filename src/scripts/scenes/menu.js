@@ -23,29 +23,29 @@ export default class MenuScene extends Phaser.Scene {
     const title = this.add.sprite(this.cameras.main.centerX, 100, 'logo')
     title.setOrigin(0.5)
 
-    const start = new ImageButton(this.cameras.main.centerX, 300, 'menu_startgame', this, {
-      up: 'menu_startgame_up',
-      down: 'menu_startgame_down',
-      over: 'menu_startgame_over',
-      out: 'menu_startgame_up'
+    const start = new ImageButton(this.cameras.main.centerX, 300, 'menu_buttons', this, {
+      up: 'startgame_up',
+      down: 'startgame_down',
+      over: 'startgame_over',
+      out: 'startgame_up'
     })
     start.on('click', this.onStartGameClick, this)
     start.on('over', this.onButtonOver, this)
 
-    const options = new ImageButton(this.cameras.main.centerX, 400, 'menu_options', this, {
-      up: 'menu_options_up',
-      down: 'menu_options_down',
-      over: 'menu_options_over',
-      out: 'menu_options_up'
+    const options = new ImageButton(this.cameras.main.centerX, 400, 'menu_buttons', this, {
+      up: 'options_up',
+      down: 'options_down',
+      over: 'options_over',
+      out: 'options_up'
     })
     options.on('click', this.onOptionsClick, this)
     options.on('over', this.onButtonOver, this)
 
-    const howto = new ImageButton(this.cameras.main.centerX, 500, 'menu_howto', this, {
-      up: 'menu_howto_up',
-      down: 'menu_howto_down',
-      over: 'menu_howto_over',
-      out: 'menu_howto_up'
+    const howto = new ImageButton(this.cameras.main.centerX, 500, 'menu_buttons', this, {
+      up: 'howto_up',
+      down: 'howto_down',
+      over: 'howto_over',
+      out: 'howto_up'
     })
     howto.on('click', this.onHowtoClick, this)
     howto.on('over', this.onButtonOver, this)
