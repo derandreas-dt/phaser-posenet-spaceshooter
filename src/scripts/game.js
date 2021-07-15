@@ -8,6 +8,9 @@ import HowtoScene from './scenes/howto'
 
 window.addEventListener('load', () => {
 
+  const gameWidth = 800
+  const gameHeight = 600
+
   const gameConfig = {
     title: 'T-Figher',
     type: Phaser.WEBGL,
@@ -17,8 +20,8 @@ window.addEventListener('load', () => {
       parent: 'phaser-game',
       mode: Phaser.Scale.FIT,
       autoCenter: Phaser.Scale.CENTER_BOTH,
-      width: window.innerWidth,
-      height: window.innerHeight,
+      width: gameWidth,
+      height: gameHeight
     },
     physics: {
       default: 'arcade',
@@ -30,12 +33,6 @@ window.addEventListener('load', () => {
       antialiasGL: false,
       pixelArt: true,
     },
-    callbacks: {
-      postBoot: () => {
-        sizeChanged()
-      },
-    },
-    canvasStyle: `display: block; width: 100%; height: 100%;`,
     autoFocus: true,
     audio: {
       disableWebAudio: false,
@@ -48,20 +45,8 @@ window.addEventListener('load', () => {
       HowtoScene,
       GameScene
     ],
-  };
-
-  const sizeChanged = () => {
-    if (game.isBooted) {
-      setTimeout(() => {
-        game.scale.resize(window.innerWidth, window.innerHeight);
-        game.canvas.setAttribute(
-          'style',
-          `display: block; width: ${window.innerWidth}px; height: ${window.innerHeight}px;`,
-        );
-      }, 100)
-    }
   }
-  window.onresize = () => sizeChanged()
+
   const game = new Phaser.Game(gameConfig)
 
   document.querySelector('#load')?.classList.add('hide')
