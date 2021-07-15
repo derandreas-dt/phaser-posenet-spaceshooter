@@ -1,4 +1,3 @@
-import PhaserLogo from '../objects/phaserLogo'
 import FpsText from '../objects/fpsText'
 import HealtText from '../objects/healthtext'
 
@@ -8,9 +7,6 @@ import { Player } from '../objects/player'
 import { detectFrame } from '../posenet/init'
 
 export default class GameScene extends Phaser.Scene {
-  fpsText
-  logo
-
   constructor() {
     super({ key: 'game' })
 
