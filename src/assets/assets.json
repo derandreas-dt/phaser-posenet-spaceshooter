@@ -23,6 +23,12 @@
     },
     "btnover" : {
         "wav" : "assets/audio/btnover.wav"
+    },
+    "elaser0" : {
+        "wav" : "assets/audio/elaser0.wav"
+    },
+    "elaser1" : {
+        "wav" : "assets/audio/elaser1.wav"
     }
   },
   "spritesheet": {

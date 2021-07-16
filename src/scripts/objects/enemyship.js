@@ -16,6 +16,9 @@ class EnemyShip extends BaseEntity {
         const laser = new EnemyLaser(this.scene, this.x, this.y)
         laser.setScale(this.scaleX)
         this.scene.enemyLasers.add(laser)
+        this.scene.sndElaser[
+          Phaser.Math.Between(0, this.scene.sndElaser.length - 1)
+        ].play()
       },
       loop: true
     })
