@@ -15,6 +15,9 @@ export default class GameScene extends Phaser.Scene {
   preload() {
     this.game.scene.current = 'game'
 
+    this.bg = this.add.tileSprite(0, 0, this.cameras.main.width, this.cameras.main.height, 'starfield')
+    this.bg.setOrigin(0, 0)
+    this.bg.setAlpha(0.7)
 
     this.enemies = this.add.group();
     this.enemyLasers = this.add.group();
@@ -129,10 +132,11 @@ export default class GameScene extends Phaser.Scene {
     })
 
     detectFrame(this.game.videoSrc, this.game)
-
   }
 
   update() {
+    this.bg.tilePositionY -= .9
+
     if(this.keyA.isDown) {
       this.player.moveLeft(Phaser.Input.Keyboard.JustDown(this.keyA))
     } else if(this.keyD.isDown) {
