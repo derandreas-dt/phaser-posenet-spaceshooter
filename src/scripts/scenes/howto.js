@@ -6,11 +6,13 @@ export default class HowtoScene extends Phaser.Scene {
     super({
       key: 'howto'
     })
+
   }
 
   create() {
     const centerX = this.cameras.main.centerX
 
+    this.sound.setVolume(this.registry.get('master-sound-volume'))
     this.soundBtnOver = this.sound.add('btnover')
     this.soundBtnClick = this.sound.add('btnclick')
 

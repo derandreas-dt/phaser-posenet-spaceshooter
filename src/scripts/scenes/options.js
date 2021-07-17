@@ -16,6 +16,7 @@ export default class OptionsScene extends Phaser.Scene {
     this.bg = this.add.tileSprite(0, 0, this.cameras.main.width, this.cameras.main.height, 'background')
     this.bg.setOrigin(0, 0)
 
+    this.sound.setVolume(this.registry.get('master-sound-volume'))
     this.soundBtnOver = this.sound.add('btnover')
     this.soundBtnClick = this.sound.add('btnclick')
 

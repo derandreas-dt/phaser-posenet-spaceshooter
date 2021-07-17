@@ -19,6 +19,7 @@ export default class GameScene extends Phaser.Scene {
     this.enemyLasers = this.add.group();
     this.playerLasers = this.add.group();
 
+    this.sound.setVolume(this.registry.get('master-sound-volume'))
     this.sndLaser = this.sound.add('laser')
     this.sndElaser = [
       this.sound.add('elaser0', { volume: 0.5 }),

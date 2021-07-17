@@ -18,6 +18,7 @@ export default class BootScene extends Scene {
     this.registry.set('showVideo', false)
     this.registry.set('draw-keypoints', false)
     this.registry.set('draw-skeleton', false)
+    this.registry.set('master-sound-volume', 0.7)
 
     this.scene.start('preload')
   }
