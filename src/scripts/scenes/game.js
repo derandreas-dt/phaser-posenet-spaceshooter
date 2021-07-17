@@ -72,7 +72,7 @@ export default class GameScene extends Phaser.Scene {
 
     this.player = new Player(this, this.cameras.main.width / 2, this.cameras.main.height - 120, 'player')
     this.player.play('fly')
-
+    this.player.setData('isShooting', true)
     this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
     this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
     this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE)
@@ -145,16 +145,7 @@ export default class GameScene extends Phaser.Scene {
       // this.player.moveStraight()
     }
 
-    if(this.keySpace.isDown) {
-      this.player.setData('isShooting', true)
-    } else {
-      this.player.setData('isShooting', false)
-      this.player.setData('timerShootTick', this.player.getData('timerShootDelay') - 1)
-    }
-
     this.player.update()
-
-
     this.fpsText.update()
     this.healthText.update()
   }
