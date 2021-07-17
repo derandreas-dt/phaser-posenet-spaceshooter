@@ -15,12 +15,15 @@ export default class GameScene extends Phaser.Scene {
   preload() {
     this.game.scene.current = 'game'
 
+
     this.enemies = this.add.group();
     this.enemyLasers = this.add.group();
     this.playerLasers = this.add.group();
 
     this.sound.setVolume(this.registry.get('master-sound-volume'))
     this.sndLaser = this.sound.add('laser')
+    this.sndExplM = this.sound.add('explosion-m')
+    this.sndExplL = this.sound.add('explosion-l')
     this.sndElaser = [
       this.sound.add('elaser0', { volume: 0.5 }),
       this.sound.add('elaser1', { volume: 0.5 })
@@ -101,6 +104,7 @@ export default class GameScene extends Phaser.Scene {
         }
         enemy.explode(true)
         laser.setActive(false)
+        this.sndExplL.play()
       }
     })
 
@@ -111,6 +115,7 @@ export default class GameScene extends Phaser.Scene {
       laser.setActive(false)
       laser.setVisible(false)
       player.incData('health', -10)
+      this.sndExplM.play()
     })
 
     this.physics.add.collider(this.enemies, this.player, (enemy, player) => {
@@ -120,6 +125,7 @@ export default class GameScene extends Phaser.Scene {
       enemy.explode()
       enemy.setData('isDead', true)
       player.incData('health', -20)
+      this.sndExplL.play()
     })
 
     detectFrame(this.game.videoSrc, this.game)
