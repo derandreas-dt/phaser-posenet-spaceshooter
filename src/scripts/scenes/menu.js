@@ -1,11 +1,6 @@
 import {
   ImageButton
 } from '../objects/button'
-
-import {
-  ScrollingBackground
-} from '../objects/starfield'
-
 export default class MenuScene extends Phaser.Scene {
   constructor() {
     super({
