@@ -3,6 +3,7 @@ import HealtText from '../objects/healthtext'
 
 import { Venemy, Oenemy } from '../objects/enemyship'
 import { Player } from '../objects/player'
+import { HealthPack } from '../objects/health'
 
 import { detectFrame } from '../posenet/init'
 
@@ -22,6 +23,7 @@ export default class GameScene extends Phaser.Scene {
     this.enemies = this.add.group();
     this.enemyLasers = this.add.group();
     this.playerLasers = this.add.group();
+    this.healthpacks = this.add.group();
 
     this.sound.setVolume(this.registry.get('master-sound-volume'))
     this.sndLaser = this.sound.add('laser')
@@ -31,6 +33,9 @@ export default class GameScene extends Phaser.Scene {
       this.sound.add('elaser0', { volume: 0.5 }),
       this.sound.add('elaser1', { volume: 0.5 })
     ]
+    this.sndPowUp1 = this.sound.add('powup1')
+    this.sndPowUp2 = this.sound.add('powup2')
+    this.sndPowUp3 = this.sound.add('powup3')
 
     this.anims.create({
       key: 'fly',
@@ -69,6 +74,15 @@ export default class GameScene extends Phaser.Scene {
       frameRate: 8,
       repeat: 0
     })
+    this.anims.create({
+      key: 'hpack',
+      frames: this.anims.generateFrameNames('healthpack', {
+        start: 0, end: 15, zeroPad: 0,
+        prefix: 'health-', suffix: '.png'
+      }),
+      frameRate: 16,
+      repeat: -1
+    })
 
     this.player = new Player(this, this.cameras.main.width / 2, this.cameras.main.height - 120, 'player')
     this.player.play('fly')
@@ -96,6 +110,17 @@ export default class GameScene extends Phaser.Scene {
         if(enemy) {
           this.enemies.add(enemy)
         }
+      },
+      loop: true
+    })
+
+
+    this.time.addEvent({
+      delay: 10000,
+      callback: () => {
+        let pack = new HealthPack(this, Phaser.Math.Between(0, this.game.config.width), 0, 'healthpack')
+        pack.play('hpack')
+        this.healthpacks.add(pack)
       },
       loop: true
     })
@@ -129,6 +154,13 @@ export default class GameScene extends Phaser.Scene {
       enemy.setData('isDead', true)
       player.incData('health', -20)
       this.sndExplL.play()
+    })
+
+    this.physics.add.collider(this.healthpacks, this.player, (pack, player) => {
+      pack.destroy()
+      let plHealth = player.getData('health')
+      player.incData('health', plHealth > 50 ? 100 - plHealth : 50)
+      this.sndPowUp1.play()
     })
 
     detectFrame(this.game.videoSrc, this.game)

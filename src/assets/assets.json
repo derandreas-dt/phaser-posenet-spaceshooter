@@ -29,6 +29,15 @@
     },
     "elaser1" : {
         "wav" : "assets/audio/elaser1.wav"
+    },
+    "powup1" : {
+        "wav" : "assets/audio/powup1.wav"
+    },
+    "powup2" : {
+        "wav" : "assets/audio/powup2.wav"
+    },
+    "powup3" : {
+        "wav" : "assets/audio/powup3.wav"
     }
   },
   "spritesheet": {
@@ -41,6 +50,7 @@
     "webfont": "https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
   },
   "multiatlas": {
-    "menu_buttons": ["assets/sprites/menu_buttons.json", "assets/sprites"]
+    "menu_buttons": ["assets/sprites/menu_buttons.json", "assets/sprites"],
+    "healthpack": ["assets/sprites/healthpack.json", "assets/sprites"]
   }
 }
