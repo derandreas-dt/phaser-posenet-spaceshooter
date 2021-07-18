@@ -22,13 +22,15 @@ So should be latest build with the newest bugs :)
 
 ## TODO
 
-  * a lot, very early prototype
-  * enable auto shooting
-  * powerups
-  * different laser types
+  * ~~a lot, very early prototype~~
+  * ~~enable auto shooting~~
+  * ~~powerups~~
+  * ~~different laser types~~
   * more enemies
   * levels
   * death
+  * performance drops somehow
+  * put posenet in webworker
   * is it a game though?
 
 ## NOTES
