@@ -192,7 +192,7 @@ export default class GameScene extends Phaser.Scene {
       player.setData('currentLaser', 'laser2')
       this.sndPowUp2.play()
       this.time.addEvent({
-        delay: 1337,
+        delay: 3000,
         callback: () => {
           player.setData('currentLaser', 'laser1')
         },
