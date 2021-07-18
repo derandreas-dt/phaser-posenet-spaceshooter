@@ -6,6 +6,7 @@ import { Player } from '../objects/player'
 import { HealthPack } from '../objects/health'
 import { LaserPickup } from '../objects/laserpickup'
 import { HealthBar } from '../objects/healthbar'
+import { PointsText } from '../objects/pointstext'
 
 import { detectFrame } from '../posenet/init'
 
@@ -105,6 +106,7 @@ export default class GameScene extends Phaser.Scene {
     this.fpsText = new FpsText(this)
     this.healthText = new HealtText(this, this.player)
     this.healthbar = new HealthBar(this, this.cameras.main.width - 100, 10)
+    this.pointstext = new PointsText(this, this.cameras.main.width / 2 - 30, 10)
 
     this.time.addEvent({
       delay: 1000,
@@ -154,6 +156,7 @@ export default class GameScene extends Phaser.Scene {
         enemy.explode(true)
         laser.setActive(false)
         this.sndExplL.play()
+        this.registry.inc('player-points', 1)
       }
     })
 
@@ -218,5 +221,6 @@ export default class GameScene extends Phaser.Scene {
     this.fpsText.update()
     this.healthText.update()
     this.healthbar.update()
+    this.pointstext.update()
   }
 }
