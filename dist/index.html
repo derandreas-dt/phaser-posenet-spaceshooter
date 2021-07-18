@@ -4,6 +4,12 @@
       margin: 0;
     }
 
+    #phaser-game {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
     #output {
       display: none
     }
@@ -19,42 +25,4 @@
 
     .hide {
       display: none !important;
-    }
-
-    .lds-hourglass {
-      display: inline-block;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 80px;
-      height: 80px;
-    }
-
-    .lds-hourglass:after {
-      content: " ";
-      display: block;
-      border-radius: 50%;
-      width: 0;
-      height: 0;
-      margin: 8px;
-      box-sizing: border-box;
-      border: 32px solid rgb(245, 0, 94);
-      border-color: rgb(245, 0, 94) transparent #fff transparent;
-      animation: lds-hourglass 1.2s infinite;
-    }
-
-    @keyframes lds-hourglass {
-      0% {
-        transform: rotate(0);
-        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-      }
-
-      50% {
-        transform: rotate(900deg);
-        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-      }
-
-      100% {
-        transform: rotate(1800deg);
-      }
-    }</style><noscript>Please enable javascript to continue using this application.</noscript><script defer="defer" src="vendors.6dad53e0fa6b77cab0f0.bundle.js"></script><script defer="defer" src="main.f0561be959213b5274b0.bundle.js"></script></head><body><div id="phaser-game"></div><video id="webcam" class="hide" autoplay width="480" height="640"></video><canvas id="output"/></body></html>
+    }</style><noscript>Please enable javascript to continue using this application.</noscript><script defer="defer" src="vendors.fb4270d55890e53b78eb.bundle.js"></script><script defer="defer" src="main.2fad216658ec9b745df6.bundle.js"></script></head><body><div id="phaser-game"></div><video id="webcam" class="hide" autoplay width="480" height="640"></video><canvas id="output"/></body></html>
