@@ -149,7 +149,7 @@ export default class GameScene extends Phaser.Scene {
     })
 
     this.physics.add.collider(this.playerLasers, this.enemies, (laser, enemy) => {
-      if(enemy) {
+      if(enemy && !enemy.getData('isDead')) {
         if(enemy.onDestroy) {
           enemy.onDestroy()
         }
