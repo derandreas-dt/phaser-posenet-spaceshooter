@@ -4,15 +4,10 @@ class HealthBar extends Phaser.GameObjects.Graphics {
       x: x,
       y: y
     })
-    console.log(x, y)
     this.value = 100
-
     this.percentFactor = 76 / 100
-
     this.bar = this.scene.add.graphics()
-
     this.scene.add.existing(this.bar)
-    this.update()
   }
 
   increase(val) {
@@ -21,8 +16,6 @@ class HealthBar extends Phaser.GameObjects.Graphics {
     if(this.value > 100) {
       this.value = 100
     }
-
-    this.update()
   }
 
   decrease(val) {
@@ -31,8 +24,6 @@ class HealthBar extends Phaser.GameObjects.Graphics {
     if(this.value < 0) {
       this.value = 0
     }
-
-    this.update()
   }
 
   update() {
