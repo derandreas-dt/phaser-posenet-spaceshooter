@@ -137,7 +137,7 @@ export default class GameScene extends Phaser.Scene {
     })
 
     this.time.addEvent({
-      delay: 20000,
+      delay: 18000,
       callback: () => {
         let pack = new LaserPickup(this, Phaser.Math.Between(0, this.game.config.width), 0, 'laser2')
         pack.play('laserpickup')
@@ -191,6 +191,13 @@ export default class GameScene extends Phaser.Scene {
       pickup.destroy()
       player.setData('currentLaser', 'laser2')
       this.sndPowUp2.play()
+      this.time.addEvent({
+        delay: 1337,
+        callback: () => {
+          player.setData('currentLaser', 'laser1')
+        },
+        loop: false
+      })
     })
 
     detectFrame(this.game.videoSrc, this.game)
