@@ -5,13 +5,13 @@ import { Venemy, Oenemy } from '../objects/enemyship'
 import { Player } from '../objects/player'
 import { HealthPack } from '../objects/health'
 import { LaserPickup } from '../objects/laserpickup'
+import { HealthBar } from '../objects/healthbar'
 
 import { detectFrame } from '../posenet/init'
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
     super({ key: 'game' })
-
   }
 
   preload() {
@@ -104,7 +104,7 @@ export default class GameScene extends Phaser.Scene {
 
     this.fpsText = new FpsText(this)
     this.healthText = new HealtText(this, this.player)
-
+    this.healthbar = new HealthBar(this, this.cameras.main.width - 100, 10)
 
     this.time.addEvent({
       delay: 1000,
@@ -164,6 +164,7 @@ export default class GameScene extends Phaser.Scene {
       laser.setActive(false)
       laser.setVisible(false)
       player.incData('health', -10)
+      this.healthbar.decrease(10)
       this.sndExplM.play()
     })
 
@@ -173,6 +174,7 @@ export default class GameScene extends Phaser.Scene {
       }
       enemy.explode()
       enemy.setData('isDead', true)
+      this.healthbar.decrease(20)
       player.incData('health', -20)
       this.sndExplL.play()
     })
@@ -181,6 +183,7 @@ export default class GameScene extends Phaser.Scene {
       pack.destroy()
       let plHealth = player.getData('health')
       player.incData('health', plHealth > 50 ? 100 - plHealth : 50)
+      this.healthbar.increase(50)
       this.sndPowUp1.play()
     })
 
@@ -207,5 +210,6 @@ export default class GameScene extends Phaser.Scene {
     this.player.update()
     this.fpsText.update()
     this.healthText.update()
+    this.healthbar.update()
   }
 }
