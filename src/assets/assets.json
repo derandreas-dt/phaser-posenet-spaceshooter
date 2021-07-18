@@ -51,6 +51,7 @@
   },
   "multiatlas": {
     "menu_buttons": ["assets/sprites/menu_buttons.json", "assets/sprites"],
-    "healthpack": ["assets/sprites/healthpack.json", "assets/sprites"]
+    "healthpack": ["assets/sprites/healthpack.json", "assets/sprites"],
+    "laser2": ["assets/sprites/laser2.json", "assets/sprites"]
   }
 }

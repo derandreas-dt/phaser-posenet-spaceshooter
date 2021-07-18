@@ -4,6 +4,7 @@ import HealtText from '../objects/healthtext'
 import { Venemy, Oenemy } from '../objects/enemyship'
 import { Player } from '../objects/player'
 import { HealthPack } from '../objects/health'
+import { LaserPickup } from '../objects/laserpickup'
 
 import { detectFrame } from '../posenet/init'
 
@@ -24,6 +25,7 @@ export default class GameScene extends Phaser.Scene {
     this.enemyLasers = this.add.group();
     this.playerLasers = this.add.group();
     this.healthpacks = this.add.group();
+    this.laserpickups = this.add.group();
 
     this.sound.setVolume(this.registry.get('master-sound-volume'))
     this.sndLaser = this.sound.add('laser')
@@ -83,6 +85,15 @@ export default class GameScene extends Phaser.Scene {
       frameRate: 16,
       repeat: -1
     })
+    this.anims.create({
+      key: 'laserpickup',
+      frames: this.anims.generateFrameNames('laser2', {
+        start: 0, end: 15, zeroPad: 0,
+        prefix: 'laser2-', suffix: '.png'
+      }),
+      frameRate: 16,
+      repeat: -1
+    })
 
     this.player = new Player(this, this.cameras.main.width / 2, this.cameras.main.height - 120, 'player')
     this.player.play('fly')
@@ -125,6 +136,16 @@ export default class GameScene extends Phaser.Scene {
       loop: true
     })
 
+    this.time.addEvent({
+      delay: 20000,
+      callback: () => {
+        let pack = new LaserPickup(this, Phaser.Math.Between(0, this.game.config.width), 0, 'laser2')
+        pack.play('laserpickup')
+        this.laserpickups.add(pack)
+      },
+      loop: true
+    })
+
     this.physics.add.collider(this.playerLasers, this.enemies, (laser, enemy) => {
       if(enemy) {
         if(enemy.onDestroy) {
@@ -161,6 +182,12 @@ export default class GameScene extends Phaser.Scene {
       let plHealth = player.getData('health')
       player.incData('health', plHealth > 50 ? 100 - plHealth : 50)
       this.sndPowUp1.play()
+    })
+
+    this.physics.add.collider(this.laserpickups, this.player, (pickup, player) => {
+      pickup.destroy()
+      player.setData('currentLaser', 'laser2')
+      this.sndPowUp2.play()
     })
 
     detectFrame(this.game.videoSrc, this.game)

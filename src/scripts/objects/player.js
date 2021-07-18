@@ -4,6 +4,7 @@
 
 import { BaseEntity } from './base'
 import { PlayerLaser } from './playerlaser'
+import { PlayerLaser2Container } from './playerlaser2'
 
 class Player extends BaseEntity {
   constructor(scene, x, y, key) {
@@ -14,12 +15,18 @@ class Player extends BaseEntity {
       isShooting: false,
       timerShootDelay: 10,
       timerShootTick: 9,
-      health: 100
+      health: 100,
+      currentLaser: 'laser1'
     })
 
     this.animState = 'fly'
 
     this.body.setImmovable(true)
+
+    this.availLasers = {
+      'laser1': PlayerLaser,
+      'laser2': PlayerLaser2Container
+    }
   }
 
   moveLeft(justDown) {
@@ -64,7 +71,7 @@ class Player extends BaseEntity {
       if(this.getData('timerShootTick') < this.getData('timerShootDelay')) {
         this.setData('timerShootTick', this.getData('timerShootTick') + 1)
       } else {
-        const laser = new PlayerLaser(this.scene, this.x, this.y, 'plaser')
+        const laser = new this.availLasers[this.getData('currentLaser')](this.scene, this.x, this.y, 'plaser')
         this.scene.playerLasers.add(laser)
 
         this.scene.sndLaser.play()
